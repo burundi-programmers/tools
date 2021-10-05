@@ -1,5 +1,3 @@
-package App;
-
 import java.sql.*;
 
 public class SQLITE {
@@ -7,13 +5,15 @@ public class SQLITE {
 
     public static void get_connection(){
         try {
-            String _db_url = "jdbc:sqlite:C:\\src\\databases\\gestion_patients.db";
-            _con = DriverManager.getConnection(_db_url);
+            
+            String database_path = "Entrer here path to your database";
+            _con = DriverManager.getConnection("jdbc:sqlite:" + database_path);
         } catch(SQLException error){
             System.err.print(error.getMessage());
         }
     }
-
+    
+    // retrieve data from database
     public static ResultSet get_data(String query){
         ResultSet data = null;
         if(_con == null) get_connection();
@@ -26,8 +26,9 @@ public class SQLITE {
 
         return  data;
     }
-
-    public static int insert_data(String query){
+    
+    // insert, update and delete data in database
+    public static int execute(String query){
         int result = -1;
         if(_con == null) get_connection();
 
