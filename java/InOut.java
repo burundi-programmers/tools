@@ -16,7 +16,7 @@ public static InOut{
 			}catch(IOException e){
 				e.printStackTrace();
 			}catch(NumberFormatException ex){
-				System.out.print("Please set an Integer");
+				System.err.print("Please set an Integer");
 			}
 		}while(true);
 		return value_int;
@@ -34,7 +34,7 @@ public static InOut{
 			}catch(IOException e){
 				e.printStackTrace();
 			}catch(NumberFormatException ex){
-				System.out.print("Please set an Integer");	
+				System.err.print("Please set an Integer");	
 			}
 		}while(true);
 		return value_float;
